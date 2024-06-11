@@ -25,6 +25,7 @@ import (
 	"github.com/stackitcloud/stackit-cli/internal/cmd/redis"
 	secretsmanager "github.com/stackitcloud/stackit-cli/internal/cmd/secrets-manager"
 	serviceaccount "github.com/stackitcloud/stackit-cli/internal/cmd/service-account"
+	"github.com/stackitcloud/stackit-cli/internal/cmd/skcf"
 	"github.com/stackitcloud/stackit-cli/internal/cmd/ske"
 	"github.com/stackitcloud/stackit-cli/internal/pkg/args"
 	"github.com/stackitcloud/stackit-cli/internal/pkg/config"
@@ -163,6 +164,7 @@ func addSubcommands(cmd *cobra.Command, p *print.Printer) {
 	cmd.AddCommand(redis.NewCmd(p))
 	cmd.AddCommand(secretsmanager.NewCmd(p))
 	cmd.AddCommand(serviceaccount.NewCmd(p))
+	cmd.AddCommand(skcf.NewCmd(p))
 	cmd.AddCommand(ske.NewCmd(p))
 }
 

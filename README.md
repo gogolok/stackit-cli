@@ -62,6 +62,7 @@ Below you can find a list of the STACKIT services already available in the CLI (
 | Infrastructure as a Service (IaaS) |                           | Will be integrated soon   |
 | Authorization                      | `project`, `organization` | :white_check_mark:        |
 | DNS                                | `dns`                     | :white_check_mark:        |
+| Korifi Cloud Foundry (SKCF)        | `skcf`                    | :white_check_mark: (alpha)|
 | Kubernetes Engine (SKE)            | `ske`                     | :white_check_mark:        |
 | Load Balancer                      | `load-balancer`           | :white_check_mark:        |
 | LogMe                              | `logme`                   | :white_check_mark:        |

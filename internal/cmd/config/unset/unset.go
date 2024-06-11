@@ -37,6 +37,7 @@ const (
 	resourceManagerCustomEndpointFlag = "resource-manager-custom-endpoint"
 	secretsManagerCustomEndpointFlag  = "secrets-manager-custom-endpoint"
 	serviceAccountCustomEndpointFlag  = "service-account-custom-endpoint"
+	skcfCustomEndpointFlag            = "skcf-custom-endpoint"
 	skeCustomEndpointFlag             = "ske-custom-endpoint"
 	sqlServerFlexCustomEndpointFlag   = "sqlserverflex-custom-endpoint"
 )
@@ -63,6 +64,7 @@ type inputModel struct {
 	ResourceManagerCustomEndpoint bool
 	SecretsManagerCustomEndpoint  bool
 	ServiceAccountCustomEndpoint  bool
+	SKCFCustomEndpoint            bool
 	SKECustomEndpoint             bool
 	SQLServerFlexCustomEndpoint   bool
 }
@@ -148,6 +150,9 @@ func NewCmd(p *print.Printer) *cobra.Command {
 			if model.ServiceAccountCustomEndpoint {
 				viper.Set(config.ServiceAccountCustomEndpointKey, "")
 			}
+			if model.SKCFCustomEndpoint {
+				viper.Set(config.SKCFCustomEndpointKey, "")
+			}
 			if model.SKECustomEndpoint {
 				viper.Set(config.SKECustomEndpointKey, "")
 			}
@@ -188,6 +193,7 @@ func configureFlags(cmd *cobra.Command) {
 	cmd.Flags().Bool(resourceManagerCustomEndpointFlag, false, "Resource Manager API base URL. If unset, uses the default base URL")
 	cmd.Flags().Bool(secretsManagerCustomEndpointFlag, false, "Secrets Manager API base URL. If unset, uses the default base URL")
 	cmd.Flags().Bool(serviceAccountCustomEndpointFlag, false, "SKE API base URL. If unset, uses the default base URL")
+	cmd.Flags().Bool(skcfCustomEndpointFlag, false, "SKCF API base URL. If unset, uses the default base URL")
 	cmd.Flags().Bool(skeCustomEndpointFlag, false, "SKE API base URL. If unset, uses the default base URL")
 	cmd.Flags().Bool(sqlServerFlexCustomEndpointFlag, false, "SQLServer Flex API base URL. If unset, uses the default base URL")
 }
@@ -215,6 +221,7 @@ func parseInput(p *print.Printer, cmd *cobra.Command) *inputModel {
 		ResourceManagerCustomEndpoint: flags.FlagToBoolValue(p, cmd, resourceManagerCustomEndpointFlag),
 		SecretsManagerCustomEndpoint:  flags.FlagToBoolValue(p, cmd, secretsManagerCustomEndpointFlag),
 		ServiceAccountCustomEndpoint:  flags.FlagToBoolValue(p, cmd, serviceAccountCustomEndpointFlag),
+		SKCFCustomEndpoint:            flags.FlagToBoolValue(p, cmd, skcfCustomEndpointFlag),
 		SKECustomEndpoint:             flags.FlagToBoolValue(p, cmd, skeCustomEndpointFlag),
 		SQLServerFlexCustomEndpoint:   flags.FlagToBoolValue(p, cmd, sqlServerFlexCustomEndpointFlag),
 	}
